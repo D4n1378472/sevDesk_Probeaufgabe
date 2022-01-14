@@ -8,7 +8,7 @@ import { TitleService } from './services/title.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  currentTitle!: Observable<string>
+  currentTitle!: Observable<string>;
   constructor(
     private titleService: TitleService
   ) {

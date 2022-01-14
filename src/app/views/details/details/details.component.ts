@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import { Details } from 'src/app/services/models/details';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
@@ -7,10 +10,16 @@ import { TitleService } from 'src/app/services/title.service';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private title: TitleService) { }
+  details!: Observable<Details>;
+
+  constructor(
+    private title: TitleService,
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Bitcoin Details');
+    this.details = this.dataService.getDetails();
   }
 
 }

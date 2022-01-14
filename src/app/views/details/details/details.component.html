@@ -1,0 +1,8 @@
+<div class="container">
+    <app-detail-card title="Marktkapitalisierung" [value]="(details | async)?.marketcap" currency="USD"></app-detail-card>
+    <app-detail-card title="Anzahl aller Bitcoins im Umlauf" [value]="(details | async)?.totalbc"></app-detail-card>
+    <app-detail-card title="Anzahl der Transaktionen in den letzten 24h" [value]="(details | async)?.['24hrtransactioncount']"></app-detail-card>
+    <app-detail-card title="Anzahl gesendeter Bitcoin in den letzten 24h" [value]="(details | async)?.['24hrbtcsent']"></app-detail-card>
+    <app-detail-card title="Aktuelle Hashrate" [value]="(details | async)?.hashrate"></app-detail-card>
+    <app-detail-card title="Aktueller Schwierigkeitsgrad" [value]="(details | async)?.getdifficulty"></app-detail-card>
+</div>

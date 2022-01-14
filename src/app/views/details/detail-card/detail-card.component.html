@@ -1,0 +1,4 @@
+<h2>{{title}}</h2>
+<div *ngIf="currency then hasCurrency; else hasNoCurrency"></div>
+<ng-template #hasCurrency>{{value | currency:currency}}</ng-template>
+<ng-template #hasNoCurrency>{{value}}</ng-template>

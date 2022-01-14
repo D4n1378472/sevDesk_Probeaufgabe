@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class TitleService {
   constructor(
     private title: Title
   ) {
-    this.$currentTitle = this._currentTitle.asObservable();
+    this.$currentTitle = this._currentTitle.pipe(delay(0));
   }
 
   setTitle(title: string) {
