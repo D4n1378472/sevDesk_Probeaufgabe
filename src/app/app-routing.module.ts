@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConverterComponent } from './views/converter/converter.component';
-import { DetailsComponent } from './views/details/details.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { MyComponent } from './views/my/my.component';
 
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'details',
-    component: DetailsComponent
+    loadChildren: () => import('./views/details/details.module').then(m => m.DetailsModule)
   },
   {
     path: 'converter',

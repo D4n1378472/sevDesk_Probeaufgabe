@@ -12,7 +12,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 import { MenuViewComponent } from './menu/menu-view/menu-view.component';
-import { DetailsComponent } from './views/details/details.component';
 import { ConverterComponent } from './views/converter/converter.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { MyComponent } from './views/my/my.component';
@@ -21,7 +20,6 @@ import { MyComponent } from './views/my/my.component';
   declarations: [
     AppComponent,
     MenuViewComponent,
-    DetailsComponent,
     ConverterComponent,
     DiagramComponent,
     MyComponent
