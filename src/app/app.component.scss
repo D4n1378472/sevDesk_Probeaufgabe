@@ -1,14 +1,9 @@
-mat-toolbar {
-    --default-height: 50px;
-}
-
-.header-toolbar {
-    position: fixed;
-    top: 0px;
-    height: var(--default-height);
-}
-
 .sidenav-container {
     height: 100%;
-    top: 50px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }

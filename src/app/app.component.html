@@ -1,12 +1,14 @@
-<mat-toolbar color="primary" class="header-toolbar">
-  <span>Probeaufgabe sevDesk - {{currentTitle | async}}</span>
-</mat-toolbar>
+<div class="flex-container">
+  <mat-toolbar color="primary">
+    <span>Probeaufgabe sevDesk - {{currentTitle | async}}</span>
+  </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav mode="side" opened>
-    <app-menu-view></app-menu-view>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <app-menu-view></app-menu-view>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
