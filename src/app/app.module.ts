@@ -12,13 +12,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 import { MenuViewComponent } from './menu/menu-view/menu-view.component';
-import { MyComponent } from './views/my/my.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuViewComponent,
-    MyComponent
+    MenuViewComponent
   ],
   imports: [
     BrowserModule,

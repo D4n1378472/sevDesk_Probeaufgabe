@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DiagramComponent } from './views/diagram/diagram/diagram.component';
-import { MyComponent } from './views/my/my.component';
 
 const routes: Routes = [
   {
@@ -27,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'my',
-    component: MyComponent
+    loadChildren: () => import('./views/my/my.module').then(m => m.MyModule)
   },
   {
     path: '**',
