@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConverterComponent } from './views/converter/converter/converter.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { MyComponent } from './views/my/my.component';
 
