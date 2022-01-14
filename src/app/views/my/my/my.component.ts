@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   templateUrl: './my.component.html',
@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class MyComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  constructor(private title: TitleService) { }
 
   ngOnInit(): void {
     this.title.setTitle('Meine Bitcoin');

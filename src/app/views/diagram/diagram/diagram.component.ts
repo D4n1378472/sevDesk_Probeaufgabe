@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   templateUrl: './diagram.component.html',
@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class DiagramComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  constructor(private title: TitleService) { }
 
   ngOnInit(): void {
     this.title.setTitle('Bitcoin Diagramm');

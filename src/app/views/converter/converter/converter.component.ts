@@ -1,8 +1,8 @@
 import { getCurrencySymbol, getLocaleCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { DataService } from 'src/app/services/data.service';
 import { CurrencySymbol } from 'src/app/services/models/currency-symbol';
+import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   templateUrl: './converter.component.html',
@@ -17,7 +17,7 @@ export class ConverterComponent implements OnInit {
   bitcoins = 0;
 
   constructor(
-    private title: Title,
+    private title: TitleService,
     private dataService: DataService
   ) {
     // this.currencies = ALL_CURRENCY_SYMBOLS.map(s => s);
