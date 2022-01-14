@@ -1,9 +1,10 @@
 const PROXY_CONFIG = [
     {
         context: [
-            'ticker​​'
+            'ticker',
+            'tobtc'
         ],
-        target: "​​https://blockchain.info",
+        target: "https://blockchain.info",
         secure: false
     }
 ]

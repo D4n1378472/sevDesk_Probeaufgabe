@@ -1,1 +1,32 @@
-<p>converter works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Bitcoin Umrechner</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Wie viel?</mat-label>
+                <input matInput [(ngModel)]="quantity" type="number" placeholder="Wie viel?">
+            </mat-form-field>
+            &nbsp;
+            <mat-form-field appearance="fill">
+                <mat-label>Währung</mat-label>
+                <mat-select [(ngModel)]="selectedCurrency">
+                    <mat-option *ngFor="let currency of currencies" [value]="currency.text">
+                        {{currency.symbol}} ({{currency.text}})
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            &nbsp;
+            <button mat-button class="calc-button" (click)="calculate()">
+                <mat-icon>arrow_forward</mat-icon>
+                <span>berechnen</span>
+            </button>
+            &nbsp;
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Bitcoins</mat-label>
+                <input matInput [(ngModel)]="bitcoins" type="number" placeholder="Bitcoins" disabled>
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+</div>

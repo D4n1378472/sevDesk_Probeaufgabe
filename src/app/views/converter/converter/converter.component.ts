@@ -1,5 +1,8 @@
+import { getCurrencySymbol, getLocaleCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { DataService } from 'src/app/services/data.service';
+import { CurrencySymbol } from 'src/app/services/models/currency-symbol';
 
 @Component({
   templateUrl: './converter.component.html',
@@ -7,12 +10,28 @@ import { Title } from '@angular/platform-browser';
 })
 export class ConverterComponent implements OnInit {
 
+  currencies: {text: string, symbol: any}[];
+
+  selectedCurrency: string = 'EUR';
+  quantity = 0;
+  bitcoins = 0;
+
   constructor(
-    private title: Title
-  ) { }
+    private title: Title,
+    private dataService: DataService
+  ) {
+    // this.currencies = ALL_CURRENCY_SYMBOLS.map(s => s);
+    this.currencies = ['EUR', 'USD', 'AUD', 'NZD', 'GBP'].map(sym => ({text: sym, symbol: getCurrencySymbol(sym, 'wide')}));
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Bitcoin Umrechner');
+  }
+
+  calculate() {
+    this.dataService.convertCurrencyToBitcoin(this.selectedCurrency as CurrencySymbol, this.quantity).subscribe(data => {
+      this.bitcoins = data;
+    });
   }
 
 }
