@@ -1,0 +1,5 @@
+<div class="container">
+    <ng-container *ngFor="let price of (prices | async)">
+        <app-widget [price]="price"></app-widget>
+    </ng-container>
+</div>

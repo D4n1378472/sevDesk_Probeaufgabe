@@ -1,0 +1,1 @@
+export type CurrencySymbol = 'EUR' | 'USD' | 'AUD' | 'NZD' | 'GBP';
