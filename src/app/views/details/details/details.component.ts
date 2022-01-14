@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { Details } from 'src/app/services/models/details';
 import { TitleService } from 'src/app/services/title.service';
@@ -8,9 +8,11 @@ import { TitleService } from 'src/app/services/title.service';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
 
-  details!: Observable<Details>;
+  details!: Details;
+
+  private _destroyComponent = new Subject<boolean>();
 
   constructor(
     private title: TitleService,
@@ -19,7 +21,14 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Bitcoin Details');
-    this.details = this.dataService.getDetails();
+    this.dataService.getDetails().pipe(takeUntil(this._destroyComponent)).subscribe(data => {
+      this.details = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+      this._destroyComponent.next(true);
+      this._destroyComponent.complete();
   }
 
 }

@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { combineLatest, map, merge } from 'rxjs';
+import { forkJoin, map, Observable, take, takeLast } from 'rxjs';
 import { CurrencyObject } from './models/currency-object';
 import { CurrencySymbol } from './models/currency-symbol';
 import { Details } from './models/details';
@@ -47,22 +47,13 @@ export class DataService {
    * @returns Observable<Details>
    */
   getDetails() {
-    return combineLatest([
-      this.http.get<number>(`${this._baseUrl}q/marketcap`),
-      this.http.get<number>(`${this._baseUrl}q/totalbc`),
-      this.http.get<number>(`${this._baseUrl}q/24hrtransactioncount`),
-      this.http.get<number>(`${this._baseUrl}q/24hrbtcsent`),
-      this.http.get<number>(`${this._baseUrl}q/hashrate`),
-      this.http.get<number>(`${this._baseUrl}q/getdifficulty`)
-    ]).pipe(
-      map(data => ({
-        marketcap: data[0],
-        totalbc: data[1],
-        '24hrtransactioncount': data[2],
-        '24hrbtcsent': data[3] / 100000000, // divide by 100000000 to convert from satoshi to bitcoin
-        hashrate: data[4],
-        getdifficulty: data[5],
-      } as Details))
-    );
+    return forkJoin({
+      marketcap: this.http.get<number>(`${this._baseUrl}q/marketcap`),
+      totalbc: this.http.get<number>(`${this._baseUrl}q/totalbc`),
+      '24hrtransactioncount': this.http.get<number>(`${this._baseUrl}q/24hrtransactioncount`),
+      '24hrbtcsent': this.http.get<number>(`${this._baseUrl}q/24hrbtcsent`),
+      hashrate: this.http.get<number>(`${this._baseUrl}q/hashrate`),
+      getdifficulty: this.http.get<number>(`${this._baseUrl}q/getdifficulty`)
+    }) as Observable<Details>;
   }
 }
