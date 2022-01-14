@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { Details } from 'src/app/services/models/details';
 import { TitleService } from 'src/app/services/title.service';

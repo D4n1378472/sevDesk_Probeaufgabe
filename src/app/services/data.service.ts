@@ -1,6 +1,6 @@
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, map, Observable, take, takeLast } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
 import { CurrencyObject } from './models/currency-object';
 import { CurrencySymbol } from './models/currency-symbol';
 import { Details } from './models/details';
