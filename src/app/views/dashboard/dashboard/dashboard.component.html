@@ -1,5 +1,8 @@
 <div class="container">
-    <ng-container *ngFor="let price of (prices | async)">
-        <app-widget [price]="price"></app-widget>
+    <ng-container *ngIf="(prices | async) as allPrices; else noPrices">
+        <ng-container *ngFor="let price of shownPrices">
+            <app-widget [price]="allPrices[price]"></app-widget>
+        </ng-container>
     </ng-container>
+    <ng-template #noPrices>Keine Daten vorhanden</ng-template>
 </div>

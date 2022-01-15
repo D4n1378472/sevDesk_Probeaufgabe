@@ -1,11 +1,11 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{price.symbol}}</mat-card-title>
+        <mat-card-title>{{price?.symbol}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <span>Einkaufspreis:</span>&nbsp;
-        {{price.buy | currency: price.symbol:'symbol-narrow'}}<br>
+        {{price?.buy | currency: price?.symbol:'symbol-narrow'}}<br>
         <span>Verkaufspreis:</span>&nbsp;
-        {{price.sell | currency: price.symbol:'symbol-narrow'}}
+        {{price?.sell | currency: price?.symbol:'symbol-narrow'}}
     </mat-card-content>
 </mat-card>
