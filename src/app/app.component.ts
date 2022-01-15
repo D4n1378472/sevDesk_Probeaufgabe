@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { TitleService } from './services/title.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +6,5 @@ import { TitleService } from './services/title.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  currentTitle!: Observable<string>;
-  constructor(
-    private titleService: TitleService
-  ) {
-    this.currentTitle = this.titleService.$currentTitle;
-  }
+
 }

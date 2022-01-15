@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Subject, takeUntil } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { Details } from 'src/app/services/models/details';
-import { TitleService } from 'src/app/services/title.service';
 
 @Component({
   templateUrl: './details.component.html',
@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private _destroyComponent = new Subject<boolean>();
 
   constructor(
-    private title: TitleService,
+    private title: Title,
     private dataService: DataService
   ) { }
 

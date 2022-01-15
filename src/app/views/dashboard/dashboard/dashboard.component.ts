@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { Price } from 'src/app/services/models/price';
-import { TitleService } from 'src/app/services/title.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './dashboard.component.html',
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   prices!: Observable<Price[]>;
 
   constructor(
-    private title: TitleService,
+    private title: Title,
     private dataService: DataService
   ) { }
 
