@@ -1,12 +1,8 @@
-.calc-button {
-    mat-icon {
-        margin-right: 8px;
-    }
+.content-container {
+    display: flex;
+    align-items: center;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.send-button {
+    padding-bottom: 1.34375em;
 }
