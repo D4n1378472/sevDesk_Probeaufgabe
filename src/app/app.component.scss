@@ -3,6 +3,8 @@
 }
 
 .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     height: 100%;
